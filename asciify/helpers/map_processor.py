@@ -1,26 +1,21 @@
 import json
-import argparse
 
 class MapProcessor:
 
-    def __init__(self):
+    def __init__(self, file_name: str):
         self.data = {}
-
-    def import_file(self, file_name: str):
         with open(file_name, 'r') as char_map:
             self.data = json.load(char_map)
 
-    def print_data(self):
-        for char, ratio in self.data.items():
-             print(ratio, "->", char)
+    def get_char(self, code: int):
+        for char, range in self.data.items():
+            if self.out_of_range(code, range):
+                continue
+            else:
+                return char
 
-    def test(self):
-        print("imported!")
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-m', '--image-map', help="image map file to map pixel values to characters", type=str)
-    args = parser.parse_args()
-    mp = MapProcessor()
-    mp.import_file(args.image_map)
-    mp.print_data()
+    def out_of_range(self, val: int, range: list):
+        low, high = range[0], range[1]
+        if val < low or val > high:
+            return True
+        return False

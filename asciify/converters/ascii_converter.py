@@ -1,24 +1,22 @@
-from PIL import Image, ImageOps
 import os
+
+from PIL import Image, ImageOps
+
+from helpers.map_processor import MapProcessor
+
 
 class AsciiConverter:
 
-    def __init__(self, file_name="", shrink_ratio=15, output_file="res.txt"):
+    def __init__(self, file_name="", shrink_ratio=15, character_map=None, output_file="res.txt"):
         self.file_name = file_name
         self.shrink_ratio = shrink_ratio
         self.output_file = output_file
 
+        # create map processor, import character map
+        self.map_processor = MapProcessor(character_map)
+
     def get_char(self, code):
-        if code < 120:
-            return ' • '
-        if 120 <= code < 140:
-            return ' * '
-        elif 140 <= code < 180:
-            return ' . '
-        elif 180 <= code < 220:
-            return ' - '
-        elif 220 <= code <= 255:
-            return '   '
+        return self.map_processor.get_char(code)
 
     def __generate_temp_name(self, original_img_name):
         if original_img_name is None:
@@ -65,12 +63,13 @@ class AsciiConverter:
             file_name (str): Name of file to write ascii characters to
             data (list): list of ascii characters
         """
-        with open(file_name, 'w') as txt:
-            for s in data:
-                print(s, file=txt)
+        with open(file_name, 'w') as f:
+            for section in data:
+                print(section, file=f)
 
     def __clean_up(self, temp_file_name: str):
-        """Removes the temp operating file
+        """
+        Removes the temp operating file
 
         Args:
             temp_file_name (string): Name of the temp file we're operating on
@@ -84,7 +83,8 @@ class AsciiConverter:
             raise Exception(f"File: {temp_file_name} not found.")
 
     def run(self):
-        """Runs the conversion process
+        """
+        Runs the conversion process
         """
         temp_file_name = self.__setup(self.file_name, self.shrink_ratio)
         data = self.__convert(temp_file_name)

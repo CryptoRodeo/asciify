@@ -1,2 +1,4 @@
 test.txt
 TODO
+**/__pycache__
+.venv
