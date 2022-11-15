@@ -11,7 +11,11 @@ class MapProcessor:
             self.data = json.load(char_map)
 
     def print_data(self):
-        print(self.data)
+        for char, ratio in self.data.items():
+             print(ratio, "->", char)
+
+    def test(self):
+        print("imported!")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
