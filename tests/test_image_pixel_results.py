@@ -1,18 +1,7 @@
-
 import pytest
 from PIL import Image
-from pathlib import Path
+from tests.fixtures.image_names import image_names, TEST_IMAGE_PATH
 
-TEST_IMAGE_PATH = "tests/test_images/"
-@pytest.fixture
-def image_names():
-    source_dir = Path(TEST_IMAGE_PATH)
-    files = source_dir.iterdir()
-    file_names = []
-    for file in files:
-        file_names.append(file.name)
-
-    return file_names
 
 def test_image_pixel_value(image_names):
     """Test that the correct pixel value gets returned for the image
@@ -21,8 +10,7 @@ def test_image_pixel_value(image_names):
         image_names (List[string]): list of names for our test images
     """
     for image_name in image_names:
-        # text image names follow this format: gray-scale-pixel-val.png
-
+        # test image names follow this format: gray-scale-pixel-val.png
         # lets grab the pixel val we should expect for this image.
         pixel_val = int(image_name.split(".")[0])
         with Image.open(TEST_IMAGE_PATH + image_name) as img:

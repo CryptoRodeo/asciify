@@ -1,32 +1,10 @@
 import pytest
 from asciify.helpers.map_processor import MapProcessor
+from tests.fixtures.image_names import image_names, TEST_IMAGE_PATH
+from tests.fixtures.expected_char_for_image import expected_char_for_image
 from PIL import Image
-from pathlib import Path
 
-TEST_IMAGE_PATH = "tests/test_images/"
 DEFAULT_CHAR_MAP = "character_maps/default.json"
-
-@pytest.fixture
-def image_names():
-    source_dir = Path(TEST_IMAGE_PATH)
-    files = source_dir.iterdir()
-    file_names = []
-    for file in files:
-        file_names.append(file.name)
-
-    return file_names
-
-@pytest.fixture
-def expected_char_for_image():
-    return {
-        '162.png': ' . ',
-        '255.png': '   ',
-        '50.png': ' • ',
-        '123.png': ' * ',
-        '0.png': ' • ',
-        '87.png': ' • ',
-        '209.png': ' - '
-    }
 
 def test_image_char_value(image_names, expected_char_for_image):
     """Test that the correct value gets returned for a pixel value
@@ -46,5 +24,8 @@ def test_image_char_value(image_names, expected_char_for_image):
                     pixel_val = img.getpixel((x,y))
                     chars_for_code.append(m.get_char(pixel_val))
 
+        # All the characters should be the same since the image is grayscale
+        # and each image is a single color
         assert all(chars_for_code)
+        # each image should generate one specific character
         assert expected_char_for_image[image_name] == chars_for_code[0]
