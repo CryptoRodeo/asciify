@@ -1,6 +1,5 @@
 from converters.ascii_converter import AsciiConverter
 
-
 def run(file_name, shrink_ratio, character_map, output_file):
     try:
         AsciiConverter(
