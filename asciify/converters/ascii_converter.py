@@ -8,7 +8,7 @@ class AsciiConverter:
     """ Converts an image to ascii using specified parameters
     """
 
-    def __init__(self, file_name="", shrink_ratio=15, output_file="res.txt", character_map=None):
+    def __init__(self, file_name=None, shrink_ratio=None, output_file=None, character_map=None):
         self.file_name = file_name
         self.shrink_ratio = shrink_ratio
         self.output_file = output_file
