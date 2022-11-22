@@ -27,8 +27,8 @@ options:
                         char map file to map pixel values to characters
 
 # Asciify one of the test images
-python asciify -f images/test.png -s 20 -o res.txt
+$ python asciify -f images/test.png -s 20 -o res.txt
 
 # Change the character map to get different results
-python asciify -f images/peng.png -s 20 -o res.txt -m character_maps/default.json
+$ python asciify -f images/peng.png -s 20 -o res.txt -m character_maps/default.json
 ```
