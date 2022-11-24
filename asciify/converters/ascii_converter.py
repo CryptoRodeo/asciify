@@ -1,6 +1,6 @@
 import os
 
-from helpers.map_processor import MapProcessor
+from asciify.helpers.map_processor import MapProcessor
 from PIL import Image, ImageOps
 
 
