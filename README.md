@@ -122,8 +122,3 @@ generates the following result (~300% zoom out):
 
 ![peng-example-b](./doc_images/peng_example_b.png)
 
----
-
-### Do my images need to be in grayscale?
-- **No**, a temp image is created from your image and it's converted to grayscale and shrunk down using the shrink ratio
-- After the conversion is completed, the temp image is deleted
