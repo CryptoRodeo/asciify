@@ -2,10 +2,8 @@
 #
 name: workflow
 
-on:
-  # Should run on any branch and pull request
-  push:
-  pull_request:
+# Should run on any branch and pull request
+on: [push, pull_request]
 
 jobs:
   build:
