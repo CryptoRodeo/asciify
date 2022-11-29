@@ -6,9 +6,10 @@
   \/_/\/_/   \/_____/   \/_____/   \/_/   \/_/   \/_/     \/_____/ 
                                                                    
 ```
-Transform images to Ascii graphics
 
-![workflow][https://github.com/CryptoRodeo/asciify/actions/workflows/ci.yml/badge.svg]
+![workflow](https://github.com/CryptoRodeo/asciify/actions/workflows/ci.yml/badge.svg)
+
+Transform images to Ascii graphics
 
 # Quick Start Guide
 ```bash
