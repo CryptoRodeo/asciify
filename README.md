@@ -7,7 +7,7 @@
                                                                    
 ```
 
-![workflow](https://github.com/CryptoRodeo/asciify/actions/workflows/ci.yml/badge.svg)
+![workflow](https://github.com/CryptoRodeo/asciify/actions/workflows/main.yml/badge.svg)
 
 Transform images to Ascii graphics
 
