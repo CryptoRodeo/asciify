@@ -8,8 +8,9 @@ on:
   pull_request:
     branches: [main]
 
-job:
+jobs:
   build:
+
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
