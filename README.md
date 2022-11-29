@@ -8,6 +8,8 @@
 ```
 Transform images to Ascii graphics
 
+![workflow][https://github.com/CryptoRodeo/asciify/actions/workflows/ci.yml/badge.svg]
+
 # Quick Start Guide
 ```bash
 git clone git@github.com:CryptoRodeo/asciify.git
