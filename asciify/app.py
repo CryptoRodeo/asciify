@@ -1,5 +1,6 @@
 from converters.ascii_converter import AsciiConverter
 
+
 def run(file_name, shrink_ratio, character_map, output_file):
     try:
         AsciiConverter(
@@ -10,4 +11,3 @@ def run(file_name, shrink_ratio, character_map, output_file):
         ).run()
     except Exception as e:
         print(e)
-

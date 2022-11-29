@@ -45,7 +45,7 @@ class AsciiConverter:
         new_name = original_img_name.replace('.png', '-temp.png')
         return new_name
 
-    def __setup(self, img_name:str=None, shrink_ratio:int=1):
+    def __setup(self, img_name: str = None, shrink_ratio: int = 1):
         """Sets up the image we'll be operating on by:
             - creating a temporary file name
             - resizing the image based on the shrink ratio
@@ -63,7 +63,7 @@ class AsciiConverter:
         temp_img_name = self.__generate_temp_name(img_name)
         with Image.open(img_name) as img:
             # Get height, width and apply shrink ratio
-            height = int( img.height / shrink_ratio)
+            height = int(img.height / shrink_ratio)
             width = int(img.width / shrink_ratio)
             # resize image
             img = img.resize((width, height))
@@ -75,7 +75,7 @@ class AsciiConverter:
 
         return temp_img_name
 
-    def __convert(self, img_name:str):
+    def __convert(self, img_name: str):
         """Converts the image to ascii by:
             - looping through the image's height and width
             - getting the pixel value for the image at x,y coordinate
@@ -95,13 +95,15 @@ class AsciiConverter:
         with Image.open(img_name) as img:
             width, height = img.size
             for y in range(height):
-                data.append('') # start off the row with an empty string
+                # start off the row with an empty string
+                data.append('')
                 for x in range(width):
-                    val = img.getpixel((x,y))
+                    val = img.getpixel((x, y))
                     char = self.get_char(val)
                     if char is None:
                         raise Exception(f"No character mapped for value {val}")
-                    data[y] += (self.get_char(val)) # append character to that row
+                    # append character to that row
+                    data[y] += (self.get_char(val))
         return data
 
     def __write_to_file(self, file_name: str, data: list):

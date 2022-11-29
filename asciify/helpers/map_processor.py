@@ -1,5 +1,6 @@
 import json
 
+
 class MapProcessor:
 
     def __init__(self, file_name: str):
