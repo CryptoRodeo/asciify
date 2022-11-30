@@ -53,7 +53,11 @@ $ python asciify -f images/peng.png -s 20 -o res.txt -m character_maps/basic.jso
 
 **Examples of differing shrink ratios**
 
-Running the following snippet:
+Lets convert the following image to ASCII
+
+![gnu-example-img](./images/gnu.png)
+
+Running this (no shrink ratio set):
 ```
 python asciify -f images/gnu.png -o res.txt
 ```
@@ -62,7 +66,7 @@ generates the following image (~300% zoom out):
 
 ![gnu-original-size](./doc_images/gnu_example_a.png)
 
-Now lets apply a shrink ratio of 10 to that same image and see what happens:
+Now lets try it again but with shrink ratio of 10:
 ```bash
 python asciify -f images/gnu.png -s 10 -o res.txt
 ```
@@ -103,12 +107,19 @@ Less detailed, but more viewable.
 - you can customize the characters and pixel value ranges to get more or less specific with the output
 
 **Using the default char map file:**
+
+Lets convert this image to ASCII:
+
+<img src="https://github.com/CryptoRodeo/asciify/blob/main/images/peng.png" width="250">
+
+Running this:
+
 ```bash
 # Note: The default map is used even if not specified
 python asciify -f images/peng.png -s 10 -m character_maps/default.json -o res.txt  
 ```
 
-generates the following result (~300% zoom out):
+generates this (~300% zoom out):
 
 ![peng-example](./doc_images/peng_example_a.png)
 
